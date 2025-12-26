@@ -6,6 +6,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 from logs.logger import logger
 
 from toolkit.tools import *
+from utils.model_loader import ModelLoader
 
 class StateGraph(TypedDict):
     messages=Annotated[list, add_messages]

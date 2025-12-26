@@ -1,0 +1,21 @@
+vector_db:
+  index_name: "trading-bot"
+
+embedding_model:
+  provider: "google"
+  model_name: "models/text-embedding-004"
+
+retriever:
+  top_k: 10
+
+llm:
+  google:
+    provider: "google"
+    model_name: "deepseek-r1-distill-llama-70b"
+  groq:
+    provider: "groq"
+    model_name: "deepseek-r1-distill-llama-70b"
+
+  tools:
+  tavily:
+    max_results: 5
