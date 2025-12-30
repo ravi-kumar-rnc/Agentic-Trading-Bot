@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from starlette.responses import JSONResponse
 from data_ingestion.ingestion_pipeline import DataIngestion  # you already have this
-from agent.workflow import GraphBuilder  # this should be your graph stream handler
+from agent.workflow import graph_builder  # this should be your graph stream handler
 from data_models.models import *
 
 app = FastAPI()
@@ -29,7 +29,7 @@ async def upload_files(files: List[UploadFile] = File(...)):
 @app.post("/query")
 async def query_chatbot(request: QuestionRequest):
     try:
-        graph_service = GraphBuilder()
+        graph_service = graph_builder()
         graph_service.build()
         graph = graph_service.get_graph()
         
