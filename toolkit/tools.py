@@ -6,7 +6,7 @@ from langchain_community.utilities.polygon import PolygonAPIWrapper
 from langchain_community.tools.bing_search import BingSearchResults 
 from data_models.models import RagToolSchema
 from langchain_pinecone import PineconeVectorStore
-from utils.model_loaders import ModelLoader
+from utils.model_loader import ModelLoader
 from utils.config_loader import load_config
 from dotenv import load_dotenv
 from pinecone import Pinecone
@@ -31,7 +31,8 @@ def retriever_tool(question):
     return retriever_result
 
 tavilytool = TavilySearchResults(
-    max_results=config["tools"]["tavily"]["max_results"],
+    # max_results=config["tools"]["tavily"]["max_results"],
+    max_results=5,
     search_depth="advanced",
     include_answer=True,
     include_raw_content=True,
